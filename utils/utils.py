@@ -2,7 +2,7 @@ import os, torch, random, string
 import numpy as np
 from pathlib import Path
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+CURRENT_DIR = Path(__file__).parent.parent
 DATASET_DIR = os.path.join(CURRENT_DIR, "dataset")
 MODELS_DIR = os.path.join(CURRENT_DIR, "models")
 NOTEBOOKS_DIR = os.path.join(CURRENT_DIR, "notebooks")
@@ -25,7 +25,10 @@ def get_device():
         else torch.device("mps") if torch.backends.mps.is_available()
         else torch.device("cpu")
     )
-    print("device:", device)
+    print("Device:", device)
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"CUDA version: {torch.version.cuda}")
+    print(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'None'}")
     return device
 
 

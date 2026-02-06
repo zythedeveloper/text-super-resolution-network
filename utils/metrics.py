@@ -9,7 +9,7 @@ import torch
 import torch.nn.functional as F
 import sys
 sys.path.append('../')
-from utils import to_torch, to_numpy
+from utils.labelmaps import to_torch, to_numpy
 
 
 def _normalize_text(text):

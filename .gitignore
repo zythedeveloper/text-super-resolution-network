@@ -39,3 +39,6 @@ venv.bak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# PyTorch
+*.pth
